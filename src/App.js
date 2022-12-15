@@ -12,7 +12,75 @@ function App() {
         </div>
     );
     const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(test);
+    root.render(test)
+
+    //Functional component
+    const ChildComponent = () => {
+        return (
+            <div>
+                <p>I am the child</p>
+            </div>
+        );
+    };
+    //class component where I compose, or nest the ChildComponent within
+    //TODO: How do I use, or call the class?
+    class ParentComponent extends React.Component {
+        constructor(props) {
+            super(props);
+        }
+        render() {
+            return (
+                <div>
+                    <h1>I am the parent</h1>
+                    <ChildComponent />
+
+                </div>
+            );
+        }
+    }
+
+    //Nesting components, or composing a component within a component
+    const TypesOfFruit = () => {
+        return (
+            <div>
+                <h2>Fruits:</h2>
+                <ul>
+                    <li>Apples</li>
+                    <li>Blueberries</li>
+                    <li>Strawberries</li>
+                    <li>Bananas</li>
+                </ul>
+            </div>
+        );
+    };
+
+    const Fruits = () => {
+        return (
+            <div>
+                { /* Change code below this line */ }
+                <TypesOfFruit />
+                { /* Change code above this line */ }
+            </div>
+        );
+    };
+    //TODO: How do I use or call the class?
+    class TypesOfFood extends React.Component {
+        constructor(props) {
+            super(props);
+        }
+
+        render() {
+            return (
+                <div>
+                    <h1>Types of Food:</h1>
+                    { /* Change code below this line */ }
+                    <Fruits />
+                    { /* Change code above this line */ }
+                </div>
+            );
+        }
+    }
+
   // return (
   //   <div className="App">
   //     <header className="App-header">
